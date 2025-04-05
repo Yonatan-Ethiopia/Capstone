@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const blackList = require('blacklist');
+const blackList = require('./src/models/blacklist');
 const autherization= (req,res, next)=>{
     const auth= req.headers['autherization'];
     if(!auth){
