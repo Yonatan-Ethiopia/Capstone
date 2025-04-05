@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+const postSchema = new mongoose.schema(
+    {
+        title: {type: string, required: true},
+        content: {type: string, required:true},
+        author: {type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true}
+    },
+    { timestamp: true }
+});
+
+const posts= new mongoose.model('posts', postSchema );
+
+module.export = posts ;
