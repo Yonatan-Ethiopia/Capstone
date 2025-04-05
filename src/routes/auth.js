@@ -1,8 +1,8 @@
 const express= require('express');
 const bycrypt= require('bcrypt');
 const jwt = require('jsonwebtoken');
-const authorization = require('authorization');
-const blacklist = require('blackList');
+const authorization = require('/src/middleware/authorization');
+const blacklist = require('/src/middleware/blackList');
 const app= express();
 const port = 3000;
 let Users = [ ];
