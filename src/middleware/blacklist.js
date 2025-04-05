@@ -1,4 +1,4 @@
-const blacklist = require('blacklist');
+const blacklist = require('./src/models/blacklist');
 
 const blackList = async ( req, res, next )=>{
     const auth= req.headers['authorization'];
