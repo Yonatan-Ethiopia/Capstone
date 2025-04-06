@@ -1,13 +1,15 @@
 const posts = require(./src/models/posts);
 
-const addPost = async (req, res, next)=>{
-    const title = req.body.title;
-    const content = req.body.content;
+const addPost = async (req, res,)=>{
+    const {title, content, category} = req.body;
+    if (!title || !content || !category) {
+        return res.status(400).json({ message: 'Title,content and category are required.' });
+}
+
     const author = req.user.id;
-    const id = Date.now();
     try{
-        await posts.creatone( title, content, author ,id);
-        res.json({message: 'Success'});
+        const newPost = await posts.create( {title, content, category, author});
+        res.json({message: 'Success', post: newPost });
     }catch(err){
         res.json({message: 'Unsuccessfull'});
     }
